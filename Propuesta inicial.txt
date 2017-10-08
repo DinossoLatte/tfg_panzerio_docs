@@ -1,0 +1,11 @@
+Nuestra propuesta de TFG constite en realizar un juego para móviles, con el uso de Unity, que posea capacidades de uso accesible, permitiendo controlar el juego con el movimiento del móvil o la voz.
+
+El juego constirá en una versión de Panzer General, un juego de estrategia por turnos en casillas hexagonales. En el juego, se podrá construir un ejercito a través de puntos, pudiendo añadir cuantas unidades sean necesarias y podiendo modificar sus atributos con los puntos.
+
+Los combates en el juego consitirá en un ataque, donde se calculará la diferencia de dos propiedades, resistencia y ataque. Existen 2 tipos de ataque, que se realizarán al mismo tiempo cuando se ataca, ataque fuerte y débil. Como ejemplo, una unidad de infantería tendrá una resistencia de ataque débil baja y de ataque fuerte alta y una unidad de blindados tendrá una resistencia débil muy alta y fuerte baja. Si alguno o todos los ataques tienen un valor superior de la resistencia, la diferencia del ataque con la resistencia se restará a la vida de la unidad.
+
+El juego tendrá gráficos hexagonales, con cada casilla presentando un gráfico que muestre el terreno de la casilla, y las unidades seguirán el sistema de la OTAN para designación de unidades. Los ejercitos de los jugadores no serán superiores por los puntos que posean, ya que se generará un ejercito de IA con la misma o cercana cantidad de puntos que el ejercito. 
+
+Se conseguirá accesibilidad con el uso de una librería integrada dentro del sistema operativo Android y principalmente tendrá dos opciones, por voz o por movimiento delmóvil. El sistema de accesibilidad por voz permitirá seleccionar los botones a través del micrófono, ya que existirá una numeración para cada botón o se integrará el reconocimiento de acciones. El sistema de accesibilidad por movimiento del móvil usará el accelerometro del móvil y un proceso de rastreo de los botones del juego para determinar si se ha escogido la opción o no.
+
+

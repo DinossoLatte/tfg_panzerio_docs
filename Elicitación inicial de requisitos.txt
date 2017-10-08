@@ -1,0 +1,49 @@
+	Introducción
+
+El proyecto de TFG ha realizar consiste en la realización de un videojuego de estrategia para plataformas móviles.
+
+   	Objetivos
+
+- Juego: El juego consitirá en un juego de estrategía por turnos, donde los jugadores moverán y atacarán con las unidades de su ejercito.
+  - Mapa: El mapa del juego se generará de forma aleatoria por cada partida y consistirá de casillas hexagonales con diferentes terrenos (colinas, montañas, bósques, urbano), con diferentes valores de movimiento, y casillas impasables (picos y agua) que ninguna unidad, *salvo aéreas y marítimas, podrá transitar.
+  - Unidades: El jugador podrá mover las unidades que posea, pudiendo mover hasta el número de movimientos posibles de la unidad. También podrá realizar ataques debilitando los puntos de vida de la unidad enemiga, siempre y cuando exista una unidad enemiga en el rango determinado por el atributo de alcance de ataque.
+    - Ataque: La fórmula del ataque será determinista. Existen 2 atributos que determinan el ataque de la unidad, ataque débil y fuerte. Para la defensa se usarán 2 atributos, defensa débil y fuerte. La fórmula de ataque consiste en encontrar la diferencia entre estos dos ataques con su correspondiente defensa. Si algunos de estos ataques es positivo, se restará la cantidad a los puntos de vida de la unidad enemiga. El terreno en el que se encuentra la unidad afectará a la fórmula, sumando puntos en la defensa.
+    - Movimiento: Las unidades pueden desplazarse en un turno la cantidad de puntos de movimientos que tenga, salvo en casillas impasables o en casillas donde se encuentre una unidad que se ha desplazado en el turno. Para mover una unidad a una posición donde se encuentra una unidad del jugador, la unidad de la casilla destino debe no haberse movido en este turno. Si se desea mover la unidad y se cumple lo anterior, se cambiarán las posiciones de las unidades.
+  - Inicio: Al iniciar una partida, los jugadores posicionarán sus unidades en los extremos del mapa. La unidad del cuartel general se posicionará en la esquina del mapa.
+  - Fin: El juego terminará cuando cualquier jugador haya perdido su unidad de cuartel general. 
+  * Existirán unidades aéreas, que pueden desplazarse sobre las unidades de tierra. Para seleccionar las unidades aéreas, se habilitará un mapa donde las unidades de tierra desaparecerán.
+  * Existirán también unidades marítimas, que podrán moverse por las casillas de agua, pero no por cualquier otra casilla de tierra.
+  ^ Existirán puntos de control distribuidos por el mapa, que una vez tomados, permitirán restablecer los puntos de vida de la unidad que esté en la posición
+  ^ Las unidades tendrán también un atributo de suministros, que si se reduce a 0, eliminará la unidad del juego. Cada turno que la unidad no restablezca sus suministros, se consumirán suministros según su atributo de consumo de suministros. Para restablecer los suministos, debe existir un camino que no pase por un enemigo y que conecte con una unidad que emita suministros y que ésta tenga el alcance suficiente (atributo de alcance de suministros). Las unidades aéreas tendrán que restablecer suministros a través de una casilla especial de aeródromo.
+  
+- Ejercito: El jugador podrá modificar el ejercito con el que juega la partida. Se podrán crear diferentes ejercitos.
+  - Unidad: Las unidades del ejercito también serán modificables, permitiendo cambiar los atributos de éstos. El ejercito tendrá un número de puntos que consiste en la suma total ponderada de atributos de todas las unidades. Las unidades cambiarán los gráficos (pudiendo seleccionar uno directamente) dependiendo de los atributos de ésta. Existe una unidad que no se podrá modificar, salvo por nombre, que es la unidad de cuartel general.
+    - Atributo de movimiento: 2^n. Exponencial, es posible tener n=0, creando una fortaleza o base.
+    - Atributo de ataque débil: 2*n. Podrá ser 0.
+    - Atributo de ataque fuerte: 4*n. Podrá ser 0.
+    - Atributo de defensa débil: 2*n. Podrá ser 0.
+    - Atributo de defensa fuerte: 4*n. Podrá ser 0.
+    - Atributo de alcance de ataque: 8*n. Podrá ser 0, eliminando el ataque de la unidad.
+    * Atributo de unidad aérea: 10.
+    * Atributo de unidad marítima: 15
+    ^ Atributo de consumo de suministros: -(n/2). No podrá ser 0.
+    ^ Atributo de emisión de suministros: 4*n. Podrá ser 0. Elimina el atributo de consumo de suministros.
+    ^ Atributo de rango de emisión de suministros. 8*n. Podrá ser 0.
+    - Límite de atributos: Las unidades no podrán sobrepasar 75 (^ 80) puntos de atributos.
+  - Restricciones: Al jugar una partida, se procurará que el ejercito enemigo posea un número de puntos iguales o similares al ejercito del jugador. Así como comprobar que tanto el ataque débil como el fuerte más alto del ejercito sea igual o mayor que la defensa correspondiente del ejercito, para evitar partidas con unidades no eliminables.
+
+- Partida: Al inicio de una partida, se generará un mapa y se podrá elegir el ejercito a usar.
+  - Mapa: El mapa se generará de forma aleatoria, permitiendo siempre que el mapa no sea separado por casillas impasables. * Si el jugador tiene unidades maritimas, se añadirán al mapa casillas de agua.
+  - Ejercito: Una vez seleccionado el mapa, el jugador eligirá el ejercito. Si existe una configuración no ganable (ver Ejercito.Restricciones), se avisará de ésto y se prohibirá iniciar la partida.
+  * Modos: Aparte de hotseat, se ofrecerá un modo multijugador o PBEM.
+
+* Editor: También se podrán crear mapas y poder usarlos en la partida.
+
+* Accesibilidad: Se ofrecerán sistemas de control para controlar unidades a través del movimiento del móvil.
+
+^ Debug: Usado para posicionar unidades y cambiar el mapa. Sólo será usado durante una partida offline.
+
+^ Internacionalización: El juego se ofrecerá en inglés y españo.
+
+React, Redux, Javascript (Typescript). HTML con canvas o regions para los
+hexes.!!!
