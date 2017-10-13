@@ -43,7 +43,4 @@ El proyecto de TFG ha realizar consiste en la realización de un videojuego de e
 
 ^ Debug: Usado para posicionar unidades y cambiar el mapa. Sólo será usado durante una partida offline.
 
-^ Internacionalización: El juego se ofrecerá en inglés y españo.
-
-React, Redux, Javascript (Typescript). HTML con canvas o regions para los
-hexes.!!!
+^ Internacionalización: El juego se ofrecerá en inglés y español.
